@@ -18,4 +18,9 @@ public class Util {
         }
         return connection;
     }
+    static public void closeConnect() {
+        try {
+            getConnect().close();
+        } catch (SQLException e) {}
+    }
 }

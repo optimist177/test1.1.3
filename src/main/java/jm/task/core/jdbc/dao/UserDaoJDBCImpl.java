@@ -23,6 +23,7 @@ public class UserDaoJDBCImpl implements UserDao {
                     "  PRIMARY KEY (`id`)\n" +
                     ") ");
         } catch (SQLException e) { }
+
     }
 
     public void dropUsersTable() {
@@ -37,6 +38,7 @@ public class UserDaoJDBCImpl implements UserDao {
             preparedStatement.setString(2,lastName);
             preparedStatement.setByte(3,age);
             preparedStatement.executeUpdate();
+            System.out.println("User " + name + " добавлен в базу данных ");
         } catch (SQLException e) { }
     }
 
@@ -59,6 +61,7 @@ public class UserDaoJDBCImpl implements UserDao {
                 user.setAge(resultSet.getByte("age"));
                 allUsers.add(user);
             }
+            System.out.println(allUsers);
         } catch (SQLException e) { }
         return allUsers;
     }
